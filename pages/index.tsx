@@ -1,13 +1,15 @@
-import Layout from "../components/layout"
+import Header from "../components/Header"
 
 export default function IndexPage() {
   return (
-    <Layout>
-      <h1>NextAuth.js Example</h1>
-      <p>
-        This is an example site to demonstrate how to use{" "}
-        <a href="https://next-auth.js.org">NextAuth.js</a> for authentication.
-      </p>
-    </Layout>
+    <div className="font-averta h-screen flex flex-col">
+      <Header />
+      <main className="grow bg-black">
+        <div className="lg:ml-32 md:ml-24 ml-20 mt-32 flex flex-col gap-6">
+          <p className="text-whyte font-black text-4xl">Australia's first aggregated sports betting API.</p>
+          <p className="text-whyte w-1/2">The OddsChaser API allows you to easily retrieve sports odds in near real-time from 12 Australian bookies (and increasing!)</p>
+        </div>
+      </main>
+    </div>
   )
 }

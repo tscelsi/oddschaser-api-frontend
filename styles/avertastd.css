@@ -1,0 +1,154 @@
+/**
+ * @license
+ *
+ * Font Family: AvertaStd
+ *
+ * Font Styles:
+ * AvertaStd Extrathin
+ * AvertaStd Extrathin Italic
+ * AvertaStd Thin
+ * AvertaStd Thin Italic
+ * AvertaStd Light
+ * AvertaStd Light Italic
+ * AvertaStd Regular
+ * AvertaStd Regualr Italic
+ * AvertaStd Medium
+ * AvertaStd Medium Italic
+ * AvertaStd Bold
+ * AvertaStd Bold Italic
+ * AvertaStd Black
+ * AvertaStd Black Italic
+ *
+*/
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-ExtrathinItalic.ttf') format('truetype');
+       font-weight: 100;
+       font-display: swap;
+       font-style: italic;
+}
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-Thin.ttf') format('truetype');
+       font-weight: 200;
+       font-display: swap;
+       font-style: italic;
+}
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-ThinItalic.ttf') format('truetype');
+       font-weight: 200;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-Light.ttf') format('truetype');
+       font-weight: 300;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-LightItalic.ttf') format('truetype');
+       font-weight: 300;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-Regular.ttf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-RegularItalic.ttf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-Semibold.ttf') format('truetype');
+       font-weight: 500;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-SemiboldItalic.ttf') format('truetype');
+       font-weight: 500;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-Bold.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-BoldItalic.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: italic;
+}
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-ExtraBold.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-ExtraBoldItalic.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-Black.ttf') format('truetype');
+       font-weight: 900;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'AvertaStd';
+  src: url('../lib/fonts/AvertaStd-BlackItalic.ttf') format('truetype');
+       font-weight: 900;
+       font-display: swap;
+       font-style: italic;
+}
+
