@@ -2,37 +2,44 @@ import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-import ReactComponent from '../../public/oc.svg'
 
-type Props = {}
+type Props = {
+    sections: DocSection[]
+}
 
-const menuItems = [
-    {
-        name: "Account",
-        subItems: [
-            { name: "Overview", link: "/account/overview" }
-        ]
-    }
-]
+type DocSection = {
+    name: string
+    paths: DocPage[]
+}
 
-const SideMenu = (props: Props) => {
+type DocPage = {
+    name: string
+    path: string
+    disabled: boolean
+}
+
+const DocsSideMenu = ({ sections }: Props) => {
     const router = useRouter()
     return (
-        <div className="w-[200px] flex flex-col justify-between bg-darkGrhey cursor-default border-r border-grhey">
-            <div className="p-8 font-bold">
-                {menuItems.map((item, index) => {
+        <div className="min-w-[200px] w-[200px] flex flex-col justify-between bg-darkGrhey cursor-default border-r border-grhey">
+            <div className="px-8 font-bold">
+                {sections.map((item, index) => {
                     return (
-                        <div key={index}>
+                        <div className="mt-6" key={index}>
                             <div>{item.name}</div>
                             <div>
-                                {item.subItems.map((subItem, subIndex) => {
+                                {item.paths.map((subItem, subIndex) => {
                                     return (
-                                        <div className={classNames("text-sm pl-4 pt-4 font-medium hover:cursor-pointer", {
-                                            "text-violet-100": router.pathname === subItem.link
+                                        <div className={classNames("text-sm ml-4 mt-4 font-medium hover:cursor-pointer hover:text-violet-100 transition-colors", {
+                                            "text-violet-300": router.asPath === `/docs/${subItem.path}`,
+                                            "text-grhey": subItem.disabled,
+                                            "hover:text-grhey": subItem.disabled,
+                                            "hover:cursor-default": subItem.disabled,
+                                            "line-through": subItem.disabled,
                                         })} key={subIndex}>
-                                            <Link href="/account/overview">
+                                            {!subItem.disabled ? <Link href={`/docs/${subItem.path}`}>
                                                 {subItem.name}
-                                            </Link>
+                                            </Link> : `${subItem.name} (coming soon)`}
                                         </div>
                                     )
                                 })}
@@ -64,4 +71,4 @@ const SideMenu = (props: Props) => {
     )
 }
 
-export default SideMenu
+export default DocsSideMenu

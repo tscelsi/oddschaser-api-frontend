@@ -19,16 +19,20 @@ const Header = (props: Props) => {
     return (
         <div className="bg-black flex justify-between items-center border-grhey border-b">
             <div className="h-16 flex items-center gap-16">
-                <div className="hover:cursor-pointer text-lg text-whyte font-black h-full flex items-center justify-between lg:pl-16 sm:pl-12 pl-8 hover:cursor-default">
-                    <Link href="/">OddsChaserAPI</Link>
-                </div>
-                <div className="text-grhey text-sm h-full flex items-center hover:cursor-default">
-                    Docs
-                </div>
+                <Link href="/">
+                    <div className="hover:cursor-pointer text-lg text-whyte font-black h-full flex items-center justify-between lg:pl-16 sm:pl-12 pl-8">
+                        <span>OddsChaser</span><span className="align-super">API</span>
+                    </div>
+                </Link>
+                <Link href="/docs/overview">
+                    <div className="text-whyte text-sm h-full flex items-center hover:cursor-pointer hover:text-violet-100 transition-colors">
+                        Docs
+                    </div>
+                </Link>
                 <div className="text-grhey text-sm h-full flex items-center hover:cursor-default">
                     Roadmap
                 </div>
-            </div>
+            </div >
             <div className={classNames("flex", {
                 "gap-16": !session,
                 "gap-6": session,
@@ -44,7 +48,16 @@ const Header = (props: Props) => {
                     >
                         Sign in
                     </a></Button>
-                    <Button>Join Now</Button>
+                    <Button><a
+                        href={`/api/auth/signin`}
+                        // className={styles.buttonPrimary}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            signIn()
+                        }}
+                    >
+                        Join Now
+                    </a></Button>
                 </div> : (
                     <DropdownMenu.Root>
                         <DropdownMenu.Trigger className="flex items-center justify-center hover:cursor-pointer">
@@ -66,7 +79,7 @@ const Header = (props: Props) => {
                     <Image src="/github-mark-white.svg" height={24} width={24} alt="github-logo" />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
