@@ -1,7 +1,6 @@
 import Link from "next/link"
 import Button from "../components/atoms/Button"
 import Header from "../components/molecules/Header"
-import Typewriter from 'typewriter-effect';
 
 export default function IndexPage() {
   return (
