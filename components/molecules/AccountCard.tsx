@@ -23,7 +23,7 @@ const AccountCard = ({ session, generateApiKey }: Props) => {
     const handleGenerateApiClick = () => {
         generateApiKey.mutateAsync().then((res: { raw_api_key: string }) => {
             setApiKey(res.raw_api_key)
-            queryClient.invalidateQueries('users')
+            queryClient.invalidateQueries(['users'])
         })
     }
 

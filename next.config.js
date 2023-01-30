@@ -4,7 +4,7 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
-        port: '',
+        port: '443',
         pathname: '/**',
       },
     ],
