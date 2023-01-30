@@ -1,8 +1,9 @@
-import Layout from "../components/layout"
+// import Layout from "../components/layout"
 
 export default function Page() {
   return (
-    <Layout>
+    // <Layout>
+    <>
       <h1>This page is protected by Middleware</h1>
       <p>Only admin users can see this page.</p>
       <p>
@@ -12,6 +13,7 @@ export default function Page() {
         </a>
         .
       </p>
-    </Layout>
+    </>
+    // </Layout>
   )
 }
