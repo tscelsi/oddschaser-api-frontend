@@ -23,6 +23,11 @@ const docSections = [
             disabled: false,
         },
         {
+            name: "Making an API Request",
+            path: 'making_api_request',
+            disabled: false,
+        },
+        {
             name: "Pagination",
             path: 'pagination',
             disabled: false,
