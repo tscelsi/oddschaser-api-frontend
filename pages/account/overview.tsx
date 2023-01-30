@@ -1,6 +1,6 @@
 import React from 'react'
 import { unstable_getServerSession } from 'next-auth/next'
-import Header from '../../components/Header'
+import Header from '../../components/molecules/Header'
 import SideMenu from '../../components/molecules/SideMenu'
 import AccountCard from '../../components/molecules/AccountCard'
 import { authOptions } from '../api/auth/[...nextauth]'

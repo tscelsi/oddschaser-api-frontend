@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Button from "../components/atoms/Button"
-import Header from "../components/Header"
+import Header from "../components/molecules/Header"
 
 export default function IndexPage() {
   return (

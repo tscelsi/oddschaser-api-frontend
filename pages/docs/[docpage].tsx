@@ -1,7 +1,7 @@
 import React from 'react'
 import { getFileContent } from '../../lib/docutils'
 import ReactMarkdown from 'react-markdown'
-import Header from '../../components/Header'
+import Header from '../../components/molecules/Header'
 import DocsSideMenu from '../../components/molecules/DocsSideMenu'
 import Highlight, { defaultProps } from "prism-react-renderer";
 
@@ -90,7 +90,6 @@ const DocPage = (props: Props) => {
                                         )}
                                     </Highlight>
                                 </div>)
-                                // return <code className="bg-darkGrhey p-1 rounded-lg">{children}</code>
                             },
                         }}
                     />

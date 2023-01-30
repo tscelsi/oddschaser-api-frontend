@@ -16,8 +16,8 @@ type Props = {
 }
 
 const AccountCard = ({ session, generateApiKey }: Props) => {
-    const accessNumber: "high" | "medium" | "low" = session.accesses > 18 ? "high" : session.accesses > 10 ? "medium" : "low"
     const [apiKey, setApiKey] = React.useState<string | null>(null)
+    const accessNumber: "high" | "medium" | "low" = session.accesses > 18 ? "high" : session.accesses > 10 ? "medium" : "low"
     const queryClient = useQueryClient()
     const { data: user } = useQuery({ queryKey: ['users'], queryFn: () => axios.get('/api/users').then(res => res.data) })
     const handleGenerateApiClick = () => {

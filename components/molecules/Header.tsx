@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { signIn, signOut, useSession } from "next-auth/react"
-import Button from './atoms/Button'
+import Button from '../atoms/Button'
 import classNames from 'classnames'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
