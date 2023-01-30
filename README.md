@@ -8,3 +8,6 @@ Written primarily using:
 - nextauth
 - tailwind
 - react-markdown
+
+Designed using:
+- figma (goat)
