@@ -11,3 +11,6 @@ Written primarily using:
 
 Designed using:
 - figma (goat)
+
+
+![homepage](/public/homepage.png)

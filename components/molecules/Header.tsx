@@ -75,9 +75,11 @@ const Header = (props: Props) => {
                         </DropdownMenu.Portal>
                     </DropdownMenu.Root>
                 )}
-                <div className="flex items-center w-5 mr-4 hover:cursor-pointer hover:opacity-60">
-                    <Image src="/github-mark-white.svg" height={24} width={24} alt="github-logo" />
-                </div>
+                <Link href="https://github.com/tscelsi/oddschaser-api-frontend">
+                    <a className="flex items-center w-5 mr-4 hover:cursor-pointer hover:opacity-60" target="_blank" rel="noopener noreferrer">
+                        <Image src="/github-mark-white.svg" height={24} width={24} alt="github-logo" />
+                    </a>
+                </Link>
             </div>
         </div >
     )
