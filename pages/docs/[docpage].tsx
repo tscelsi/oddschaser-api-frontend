@@ -60,11 +60,11 @@ const DocPage = (props: Props) => {
     return (
         <div className="font-averta min-h-screen flex flex-col bg-black">
             <Header />
-            <div className="flex grow text-whyte">
+            <div className="text-whyte">
                 <DocsSideMenu sections={docSections} />
-                <div className="grow flex justify-center">
+                <div>
                     <ReactMarkdown
-                        className="mx-16 mt-8 max-w-3xl text-start"
+                        className="lg:mx-16 mx-8 mt-8 max-w-3xl text-start"
                         children={props.content}
                         components={{
                             h2: ({ children }) => <h2 className="text-4xl font-bold mb-8">{children}</h2>,
@@ -80,10 +80,10 @@ const DocPage = (props: Props) => {
                             code: ({ children }) => {
                                 let codeBlock = children[0] as string
                                 codeBlock = codeBlock.trim()
-                                return (<div className="overflow-hidden">
+                                return (<div>
                                     <Highlight {...defaultProps} code={codeBlock} language="json">
                                         {({ style, tokens, getLineProps, getTokenProps }) => (
-                                            <pre className="p-4 rounded-lg mb-4" style={style}>
+                                            <pre className="overflow-x-scroll p-4 rounded-lg mb-4" style={style}>
                                                 {tokens.map((line, i) => (
                                                     <div {...getLineProps({ line, key: i })}>
                                                         {line.map((token, key) => (
