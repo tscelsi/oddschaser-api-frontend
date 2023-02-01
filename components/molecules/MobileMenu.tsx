@@ -5,11 +5,12 @@ import classNames from 'classnames'
 import Button from '../atoms/Button'
 import { signIn, useSession } from "next-auth/react"
 import docSections from '../../lib/docs/docSections'
-
+import { useMobileMenu } from '../../context/MobileMenuContext'
 
 const MobileMenu = () => {
     const session = useSession()
     const router = useRouter()
+    const { toggleMenu } = useMobileMenu()
     return (
         <div className="h-[calc(100%-16rem)] flex flex-col grow bg-black">
             {!session.data && (
@@ -18,6 +19,7 @@ const MobileMenu = () => {
                         href={`/api/auth/signin`}
                         // className={styles.buttonPrimary}
                         onClick={(e) => {
+                            toggleMenu()
                             e.preventDefault()
                             signIn()
                         }}
@@ -29,7 +31,7 @@ const MobileMenu = () => {
             <div className="mx-8 my-6 font-medium">
                 <div className="text-whyte text-lg font-bold">Menu</div>
                 <Link href="/docs/overview">
-                    <div className="mt-6 ml-4 text-whyte flex items-center hover:cursor-pointer hover:text-violet-100 transition-colors">
+                    <div onClick={toggleMenu} className="mt-6 ml-4 text-whyte flex items-center hover:cursor-pointer hover:text-violet-100 transition-colors">
                         Docs
                     </div>
                 </Link>
@@ -46,7 +48,7 @@ const MobileMenu = () => {
                             <div>
                                 {item.paths.map((subItem, subIndex) => {
                                     return (
-                                        <div className={classNames("text-base ml-4 mt-6 font-medium hover:cursor-pointer hover:text-violet-100 transition-colors", {
+                                        <div onClick={toggleMenu} className={classNames("text-base ml-4 mt-6 font-medium hover:cursor-pointer hover:text-violet-100 transition-colors", {
                                             "text-violet-300": router.asPath === `/docs/${subItem.path}`,
                                             "text-grhey": subItem.disabled,
                                             "hover:text-grhey": subItem.disabled,
