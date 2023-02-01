@@ -10,7 +10,6 @@ import docSections from '../../lib/docs/docSections'
 const MobileMenu = () => {
     const session = useSession()
     const router = useRouter()
-
     return (
         <div className="h-[calc(100%-16rem)] flex flex-col grow bg-black">
             {!session.data && (

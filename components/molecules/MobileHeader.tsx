@@ -5,15 +5,16 @@ import { signOut, useSession } from "next-auth/react"
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { HiMenuAlt1, HiOutlineX } from 'react-icons/hi'
 import MobileMenu from './MobileMenu'
+import { useMobileMenu } from '../../context/MobileMenuContext'
 
 const MobileHeader = () => {
     const session = useSession()
-    const [open, setOpen] = React.useState(false)
+    const { menuOpen, toggleMenu } = useMobileMenu()
     return (
         <div className="lg:hidden w-screen z-[20] sticky top-0 flex flex-col">
             <div className="h-16 flex justify-between border-grhey border-b bg-black">
                 <div className="bg-black flex justify-start items-center">
-                    {!open ? <HiMenuAlt1 onClick={() => setOpen(!open)} className="ml-4 text-whyte hover:cursor-pointer" size={22} /> : <HiOutlineX onClick={() => setOpen(!open)} className="ml-4 text-whyte hover:cursor-pointer" size={22} />}
+                    {!menuOpen ? <HiMenuAlt1 onClick={toggleMenu} className="ml-4 text-whyte hover:cursor-pointer" size={22} /> : <HiOutlineX onClick={toggleMenu} className="ml-4 text-whyte hover:cursor-pointer" size={22} />}
                     <div className="h-16 flex items-center gap-16">
                         <Link href="/">
                             <div className="hover:cursor-pointer text-lg text-whyte font-black h-full flex items-center justify-between lg:pl-16 sm:pl-12 pl-8">
@@ -47,7 +48,7 @@ const MobileHeader = () => {
                     </Link>
                 </div>
             </div>
-            {open && <MobileMenu />}
+            {menuOpen && <MobileMenu />}
         </div>
     )
 }
