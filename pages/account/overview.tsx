@@ -7,6 +7,7 @@ import { authOptions } from '../api/auth/[...nextauth]'
 import { MongoClient, Db } from "mongodb"
 import clientPromise from "../../lib/mongodb"
 import { useGenerateApiKey } from "../../lib/services"
+import useWindowSize from '../../hooks/useWindowSize'
 
 
 type Props = {
@@ -63,14 +64,17 @@ export async function getServerSideProps(context: any) {
     }
 }
 
+const TAILWIND_LG_BREAKPOINT = 1024
+
 const Account = (props: Props) => {
+    const { width } = useWindowSize()
     const generateApiKey = useGenerateApiKey()
     return (
         <div className="font-averta h-screen flex flex-col text-whyte">
             <Header />
             <main className="flex grow bg-black">
-                <SideMenu />
-                <div className="grow flex mt-16 mx-12">
+                {width && width > TAILWIND_LG_BREAKPOINT && <SideMenu />}
+                <div className="grow flex mt-16 lg:px-12 p-4 w-screen">
                     <AccountCard
                         session={props.session}
                         generateApiKey={generateApiKey}

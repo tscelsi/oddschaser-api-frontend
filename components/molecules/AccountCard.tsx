@@ -32,27 +32,27 @@ const AccountCard = ({ session, generateApiKey }: Props) => {
     }
 
     return (
-        <div className="flex flex-col gap-16 grow text-whyte">
+        <div className="w-full flex flex-col gap-16 grow text-whyte">
             <div className="font-bold bg-darkGrhey rounded-lg">
-                <div className="h-16 px-10 flex items-center justify-start border-grhey border-b">
+                <div className="h-16 px-6 lg:px-10 flex items-center justify-start border-grhey border-b">
                     Account Information
                 </div>
-                <div className="font-medium px-10 h-12 my-6 flex gap-x-16 items-center justify-start">
+                <div className="font-medium px-6 lg:px-10 h-12 my-6 flex gap-x-8 lg:gap-x-16 items-center justify-start">
                     Name
                     <input disabled className="grow h-full rounded-lg pl-4 text-sm text-grhey font-medium bg-black" placeholder='...' value={session.name ?? ""} />
                 </div>
-                <div className="font-medium px-10 h-12 my-6 flex gap-x-16 items-center justify-start">
+                <div className="font-medium px-6 lg:px-10 h-12 my-6 flex gap-x-8 lg:gap-x-16 items-center justify-start">
                     Email
                     <input disabled className="grow h-full rounded-lg pl-4 text-sm text-grhey font-medium bg-black" placeholder='...' value={session.email ?? ""} />
                 </div>
             </div>
             <div className="font-bold bg-darkGrhey rounded-lg">
-                <div className="h-16 px-10 flex items-center justify-start border-grhey border-b">
+                <div className="h-16 px-6 lg:px-10 flex items-center justify-start border-grhey border-b">
                     API Information
                 </div>
-                <div className="font-medium px-10 h-12 my-6 flex gap-x-16 items-center justify-start">
-                    API Key
-                    {session._key && !apiKey ? <Button onClick={handleGenerateApiClick} variant="error" size="large" loading={generateApiKey.isLoading}>Generate a new API Key</Button>
+                <div className="font-medium px-6 lg:px-10 h-12 my-6 flex gap-x-8 lg:gap-x-16 items-center justify-start">
+                    <div>API Key</div>
+                    {session._key && !apiKey ? <Button onClick={handleGenerateApiClick} variant="error" size="large" loading={generateApiKey.isLoading}>Create new API Key</Button>
                         : apiKey ? (
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center gap-x-2"><span className="font-normal text-sm rounded-lg bg-black p-3">{apiKey}</span><IoCopyOutline onClick={copy} className="hover:opacity-60 hover:cursor-pointer" /></div>
@@ -61,7 +61,7 @@ const AccountCard = ({ session, generateApiKey }: Props) => {
                         ) : <Button loading={generateApiKey.isLoading} onClick={handleGenerateApiClick} size="large">Generate API Key</Button>
                     }
                 </div>
-                <div className="font-medium px-10 h-12 my-6 flex gap-x-16 items-center justify-start">
+                <div className="font-medium px-6 lg:px-10 h-12 my-6 flex gap-x-8 lg:gap-x-16 items-center justify-start">
                     <span>Quota</span>
                     {user?.has_key ? <span className={classNames({
                         "text-red-500": accessNumber === "high",

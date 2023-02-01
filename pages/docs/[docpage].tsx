@@ -89,7 +89,7 @@ const DocPage = (props: Props) => {
                                 return (<div>
                                     <Highlight {...defaultProps} code={codeBlock} language="json">
                                         {({ style, tokens, getLineProps, getTokenProps }) => (
-                                            <pre className="overflow-x-scroll p-4 rounded-lg mb-4" style={style}>
+                                            <pre className="overflow-auto p-4 rounded-lg mb-4" style={style}>
                                                 {tokens.map((line, i) => (
                                                     <div {...getLineProps({ line, key: i })}>
                                                         {line.map((token, key) => (
