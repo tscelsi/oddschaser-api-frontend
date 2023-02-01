@@ -24,6 +24,7 @@ const AccountCard = ({ session, generateApiKey }: Props) => {
     const accessNumber: "high" | "medium" | "low" = session.accesses > 18 ? "high" : session.accesses > 10 ? "medium" : "low"
     const queryClient = useQueryClient()
     const { data: user } = useQuery({ queryKey: ['users'], queryFn: () => axios.get('/api/users').then(res => res.data) })
+    
     const handleGenerateApiClick = () => {
         generateApiKey.mutateAsync().then((res: { raw_api_key: string }) => {
             setApiKey(res.raw_api_key)

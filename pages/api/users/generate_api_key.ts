@@ -30,24 +30,25 @@ export default async function handler(
         const db: Db = client.db(process.env.MONGODB_DB)
         const key = generateApiKey({ method: 'string', length: 32 }) as string
         const keyHash = sha256(key)
-        const user = await db.collection(COLLECTION).findOneAndUpdate({ email: session.user.email }, {
+        const user = await db.collection(COLLECTION).findOne({ email: session.user.email })
+        const modifyResult = await db.collection(COLLECTION).findOneAndUpdate({ email: session.user.email }, {
             $set: {
                 _key: keyHash,
                 has_key: true,
-                limit: DEFAULT_API_LIMIT,
-                _type: DEFAULT_USER_TYPE,
-                accesses: INIT_ACCESSES,
-            }
-        }, { returnDocument: 'after' })
-        if (user) {
-            res.status(StatusCodes.OK).json({ raw_api_key: key })
-        } else {
-            return res.status(StatusCodes.BAD_REQUEST).send({
-                error:
-                    "Failed to get session.",
-            })
+                ...(!user?.limit && { limit: DEFAULT_API_LIMIT }),
+                ...(!user?._type && { _type: DEFAULT_USER_TYPE }),
+                ...(!user?.accesses && { accesses: INIT_ACCESSES }),
         }
+        }, { returnDocument: 'after' })
+    if (modifyResult) {
+        res.status(StatusCodes.OK).json({ raw_api_key: key })
     } else {
-        res.status(StatusCodes.METHOD_NOT_ALLOWED).json({ error: 'Method not allowed' })
+        return res.status(StatusCodes.BAD_REQUEST).send({
+            error:
+                "Failed to get session.",
+        })
     }
+} else {
+    res.status(StatusCodes.METHOD_NOT_ALLOWED).json({ error: 'Method not allowed' })
+}
 }

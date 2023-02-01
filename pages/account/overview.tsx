@@ -69,6 +69,7 @@ const TAILWIND_LG_BREAKPOINT = 1024
 const Account = (props: Props) => {
     const { width } = useWindowSize()
     const generateApiKey = useGenerateApiKey()
+
     return (
         <div className="font-averta h-screen flex flex-col text-whyte">
             <Header />
