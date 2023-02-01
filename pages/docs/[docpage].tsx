@@ -1,9 +1,11 @@
 import React from 'react'
-import { getFileContent } from '../../lib/docutils'
 import ReactMarkdown from 'react-markdown'
+import Highlight, { defaultProps } from "prism-react-renderer";
+import { getFileContent } from '../../lib/docutils'
 import Header from '../../components/molecules/Header'
 import DocsSideMenu from '../../components/molecules/DocsSideMenu'
-import Highlight, { defaultProps } from "prism-react-renderer";
+import useWindowSize from '../../hooks/useWindowSize'
+import { useMobileMenu } from '../../context/MobileMenuContext'
 
 type Props = {
     content: string
@@ -56,13 +58,17 @@ const docSections = [
     }
 ]
 
+const TAILWIND_LG_BREAKPOINT = 1024
+
 const DocPage = (props: Props) => {
+    const { width } = useWindowSize();
+    const { menuOpen } = useMobileMenu()
     return (
         <div className="font-averta min-h-screen flex flex-col bg-black">
             <Header />
-            <div className="text-whyte">
-                <DocsSideMenu sections={docSections} />
-                <div>
+            {!menuOpen && <div className="text-whyte flex">
+                {width && width > TAILWIND_LG_BREAKPOINT && <DocsSideMenu sections={docSections} />}
+                <div className="w-full">
                     <ReactMarkdown
                         className="lg:mx-16 mx-8 mt-8 max-w-3xl text-start"
                         children={props.content}
@@ -99,7 +105,7 @@ const DocPage = (props: Props) => {
                         }}
                     />
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }

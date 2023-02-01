@@ -21,7 +21,7 @@ type DocPage = {
 const DocsSideMenu = ({ sections }: Props) => {
     const router = useRouter()
     return (
-        <div className="hidden lg:flex min-w-[200px] w-[200px] flex-col justify-between bg-darkGrhey cursor-default border-r border-grhey">
+        <div className="none lg:flex min-w-[200px] w-[200px] flex-col justify-between bg-darkGrhey cursor-default border-r border-grhey">
             <div className="px-8 font-bold">
                 {sections.map((item, index) => {
                     return (
