@@ -12,7 +12,7 @@ type Props = {
 
 const Button = ({ size = "small", variant = "primary", image, stretch, loading, children, ...rest }: Props) => {
   return (
-    <div className={classNames("text-sm flex gap-2 transition-colors hover:cursor-pointer hover:bg-violet-100 text-whyte font-medium bg-violet-300 justify-center items-center px-6 rounded-lg",
+    <div className={classNames("text-center select-none text-sm flex gap-2 transition-colors hover:cursor-pointer hover:bg-violet-100 text-whyte font-medium bg-violet-300 justify-center items-center px-6 rounded-lg",
       {
         "text-sm": size === 'small',
         "text-base": size === 'medium' || size === 'large',

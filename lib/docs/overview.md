@@ -17,12 +17,12 @@ Here's a snippet of what an API response might look like for an NBA game:
     "odds": {
         "sites": {
             "sportsbet": {
-                "usa": 1.69,
-                "brazil": 2.09
+                "golden_state_warriors": 1.69,
+                "la_lakers": 2.09
             },
             "pointsbet": {
-                "usa": 1.67,
-                "brazil": 2.12
+                "golden_state_warriors": 1.67,
+                "la_lakers": 2.12
             },
             ...
         },
