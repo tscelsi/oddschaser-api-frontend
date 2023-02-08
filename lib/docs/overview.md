@@ -36,7 +36,7 @@ Here's a snippet of what an API response might look like for an NBA game:
 
 ##### How many sports are being scraped right now?
 
-We currently only scrape basketball data and will be limiting our API to only basketball data for the time being. Please reach out to us if you would like to see other sports added.
+We currently aren't scraping any real events to reduce server costs while there is no interest. If you're interested in using this API for live data, please reach out to us.
 
 ##### Contact us
 
